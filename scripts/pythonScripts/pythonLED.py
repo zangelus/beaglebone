@@ -13,6 +13,10 @@ def removeTrigger():
    writeLED (filename="/trigger", value="none")
    return
 
+def mmc1():
+   writeLED (filename="/trigger", value="mmc1")
+   return
+
 print "Starting the LED Python Script"
 if len(sys.argv)!=2:
    print "There are an incorrect number of arguments"
@@ -37,6 +41,10 @@ elif sys.argv[1]=="status":
    fo = open( LED3_PATH + "/trigger", "r")
    print fo.read()
    fo.close()
+elif sys.argv[1]=="mmc1":
+   print "Setting led to mmc1"
+   mmc1()
+   writeLED (filename="/brightness", value="1")
 else:
    print "Invalid Command!"
 print "End of Python Script"
